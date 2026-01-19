@@ -19,18 +19,18 @@ You need to fetch these in parallel to reduce latency. However, if *either* fail
 Create a `UserAggregator` struct and a method `Aggregate(id int)` that orchestrates this fetching.
 
 ### 1. Functional Requirements
-* [ ] The aggregator must be configurable (timeout, logger) without a massive constructor.
-* [ ] Both services must be queried concurrently.
-* [ ] The result should combine both outputs: `"User: Alice | Orders: 5"`.
+* [x] The aggregator must be configurable (timeout, logger) without a massive constructor.
+* [x] Both services must be queried concurrently.
+* [x] The result should combine both outputs: `"User: Alice | Orders: 5"`.
 
 ### 2. The "Idiomatic" Constraints (Pass/Fail Criteria)
 To pass this kata, you **must** strictly adhere to these rules:
 
-* [ ] **NO `sync.WaitGroup`:** You must use `golang.org/x/sync/errgroup`.
-* [ ] **NO "Parameter Soup":** You must use the **Functional Options Pattern** for the constructor (e.g., `New(WithTimeout(2s))`).
-* [ ] **Context is King:** You must pass `context.Context` as the first argument to your methods.
-* [ ] **Cleanup:** If the Profile service fails, the Order service request must be cancelled (via Context) immediately.
-* [ ] **Modern Logging:** Use `log/slog` for structured logging.
+* [x] **NO `sync.WaitGroup`:** You must use `golang.org/x/sync/errgroup`.
+* [x] **NO "Parameter Soup":** You must use the **Functional Options Pattern** for the constructor (e.g., `New(WithTimeout(2s))`).
+* [x] **Context is King:** You must pass `context.Context` as the first argument to your methods.
+* [x] **Cleanup:** If the Profile service fails, the Order service request must be cancelled (via Context) immediately.
+* [x] **Modern Logging:** Use `log/slog` for structured logging.
 
 ## 🧪 Self-Correction (Test Yourself)
 Run your code against these edge cases:

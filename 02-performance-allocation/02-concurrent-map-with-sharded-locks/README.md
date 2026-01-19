@@ -18,19 +18,19 @@ You're building a real-time **API Rate Limiter** that tracks request counts per 
 Implement `ShardedMap[K comparable, V any]` with configurable shard count that provides safe concurrent access.
 
 ### 1. Functional Requirements
-* [ ] Type-safe generic implementation (Go 1.18+)
-* [ ] `Get(key K) (V, bool)` - returns value and existence flag
-* [ ] `Set(key K, value V)` - inserts or updates
-* [ ] `Delete(key K)` - removes key
-* [ ] `Keys() []K` - returns all keys (order doesn't matter)
-* [ ] Configurable number of shards at construction
+* [x] Type-safe generic implementation (Go 1.18+)
+* [x] `Get(key K) (V, bool)` - returns value and existence flag
+* [x] `Set(key K, value V)` - inserts or updates
+* [x] `Delete(key K)` - removes key
+* [x] `Keys() []K` - returns **all** keys (order doesn't matter)
+* [x] Configurable number of shards at construction
 
 ### 2. The "Idiomatic" Constraints (Pass/Fail Criteria)
-* [ ] **NO `sync.Map`**: Implement sharding manually with `[]map[K]V` and `[]sync.RWMutex`
-* [ ] **Smart Sharding**: Use `fnv64` hashing for key distribution (don't rely on Go's random map iteration)
-* [ ] **Read Optimization**: Use `RLock()` for `Get()` operations when safe
-* [ ] **Zero Allocation Hot-Path**: `Get()` and `Set()` must not allocate memory in the critical section (no string conversion, no boxing)
-* [ ] **Clean `Keys()`**: Implement without data races, even while concurrent writes occur
+* [x] **NO `sync.Map`**: Implement sharding manually with `[]map[K]V` and `[]sync.RWMutex`
+* [x] **Smart Sharding**: Use `fnv64` hashing for key distribution (don't rely on Go's random map iteration)
+* [x] **Read Optimization**: Use `RLock()` for `Get()` operations when safe
+* [x] **Zero Allocation Hot-Path**: `Get()` and `Set()` must not allocate memory in the critical section (no string conversion, no boxing)
+* [x] **Clean `Keys()`**: Implement without data races, even while concurrent writes occur
 
 ## 🧪 Self-Correction (Test Yourself)
 1. **The Contention Test**:
