@@ -18,12 +18,12 @@ Build an **HTTP Server with Background Worker** that must:
 Implement `Server` struct with `Start() error` and `Stop(ctx context.Context) error` methods.
 
 ### 1. Functional Requirements
-* [ ] HTTP server on configurable port with request timeout
-* [ ] Worker pool (configurable size) processes requests via channel
-* [ ] Background cache warmer ticks every 30s (use `time.Ticker`)
-* [ ] Database connection pool (mock with `net.Conn`)
-* [ ] SIGTERM/SIGINT triggers graceful shutdown
-* [ ] Shutdown completes within deadline or forces exit
+* [x] HTTP server on configurable port with request timeout
+* [x] Worker pool (configurable size) processes requests via channel
+* [x] Background cache warmer ticks every 30s (use `time.Ticker`)
+* [x] Database connection pool (mock with `net.Conn`)
+* [x] SIGTERM/SIGINT triggers graceful shutdown
+* [x] Shutdown completes within deadline or forces exit
 
 ### 2. The "Idiomatic" Constraints (Pass/Fail Criteria)
 * [ ] **Single Context Tree**: Root `context.Context` passed to `Start()`, canceled on shutdown
