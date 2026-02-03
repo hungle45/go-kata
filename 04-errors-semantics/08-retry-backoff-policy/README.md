@@ -25,16 +25,16 @@ Implement:
 - `func (r *Retryer) Do(ctx context.Context, fn func(context.Context) error) error`
 
 ### 1. Functional Requirements
-- [ ] Retries up to `MaxAttempts`.
-- [ ] Uses exponential backoff: `base * 2^attempt` with a max cap.
-- [ ] Optional jitter (deterministic in tests).
-- [ ] Stops immediately on `ctx.Done()`.
+- [x] Retries up to `MaxAttempts`.
+- [x] Uses exponential backoff: `base * 2^attempt` with a max cap.
+- [x] Optional jitter (deterministic in tests).
+- [x] Stops immediately on `ctx.Done()`.
 
 ### 2. The "Idiomatic" Constraints (Pass/Fail Criteria)
-- [ ] **Must NOT** call `time.Sleep` inside the retry loop.
-- [ ] **Must** use a `time.Timer` and `Reset` it (timer reuse).
-- [ ] **Must** wrap the final error with context (attempt count) using `%w`.
-- [ ] **Must** classify errors using `errors.Is` / `errors.As`.
+- [x] **Must NOT** call `time.Sleep` inside the retry loop.
+- [x] **Must** use a `time.Timer` and `Reset` it (timer reuse).
+- [x] **Must** wrap the final error with context (attempt count) using `%w`.
+- [x] **Must** classify errors using `errors.Is` / `errors.As`.
 
 ## 🧪 Self-Correction (Test Yourself)
 - **If context cancellation only stops after the sleep:** you failed.
