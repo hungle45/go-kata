@@ -1,0 +1,9 @@
+# Binaries and build artifacts
+embedfs-dev-prod-switch
+bin/
+*.o
+*.a
+*.so
+*.exe
+*.dll
+.DS_Store
